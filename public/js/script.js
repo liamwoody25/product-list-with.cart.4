@@ -5,13 +5,24 @@ const imgCard = document.querySelectorAll('.product-image-tablet');
 const cardImage = document.querySelectorAll('.product-image-desktop')
 const insertBtn = document.querySelectorAll('.increase-btn');
 const deleteBtn = document.querySelectorAll('.decrease-btn');
+const imageCart = document.querySelector('.cart-placeholder-content');
 
-const cartItems = []
+const cartItems = [ 
+  {
+     "image": {
+            "thumbnail": "./assets/images/image-waffle-thumbnail.jpg",
+            "mobile": "./assets/images/image-waffle-mobile.jpg",
+            "tablet": "./assets/images/image-waffle-tablet.jpg",
+            "desktop": "./assets/images/image-waffle-desktop.jpg"
+       },
+       "name": "Waffle with Berries",
+       "category": "Waffle",
+       "price": 6.50
+    },]
 
 
 // this function sends the item to the cart
 function addItemToCart(index) {
-
   const output = document.querySelectorAll('#output')[index];
   const result = Number(output.innerText) + 1;
   
@@ -20,11 +31,21 @@ function addItemToCart(index) {
   }
 
   output.innerText = result
+  const addProduct = document.querySelector('.cart-section');
 
+
+  if (insertBtn === 'block') {
+    imageCart.style.display = 'none'
+  } else {
+    imageCart.style.display ='block'
+  }
+
+  imageCart.style.display = 'none'
   quanBtn[index].style.display = 'block'
-  imageCard[index].style.border = '3px solid #C73B0F'
+  imageCard[index].style.border = '2px solid #C73B0F'
   imgCard[index].style.border = '3px solid #C73B0F'
   cardImage[index].style.border = '3px solid #C73B0F'
+
 }
 
 
@@ -32,6 +53,7 @@ function addItemToCart(index) {
 // this function removes an item from the cart
 function removeItemFromCart(index) {
   const output = document.querySelectorAll('#output')[index];
+  const removeProduct = document.querySelector('.cart-section')
   const result = Number(output.innerText) - 1;
 
   if (result < 0) {

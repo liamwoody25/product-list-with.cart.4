@@ -78,6 +78,16 @@ p {
   left: 80px;
 }
 
+.delete-btn {
+  background-color: transparent;
+  border: none;
+}
+
+.bi-x-circle {
+  font-size: 20px;
+  color: #AD8A85;
+}
+
 .decrease-btn,
 .increase-btn {
   padding: 0px;
